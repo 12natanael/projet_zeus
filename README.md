@@ -7,16 +7,9 @@
 
 [Cahier des charges complet – 44 pages](docs/cahier_des_charges.pdf)
 
-## NOUS AVONS DÉJÀ PERDU ASSEZ DE SEMAINES.
+ 
 
-Depuis le début, le projet n’avançait pas :  
-- personne ne savait quoi et ou coder  
-- pas de repo commun  
-- pas de branches  
-- pas de structure claire  
-- Chacun était désinteressé  
-
-J’ai donc vu important de faire ce Repositroy qui contient déjà :
+J’ai  vu important de faire ce Repositroy qui contient déjà :
 
 - Création du repo privé  
 - Architecture complète (dossiers, modules, fichiers de base)  
@@ -25,6 +18,7 @@ J’ai donc vu important de faire ce Repositroy qui contient déjà :
 - README + CONTRIBUTING ultra-clair  
 - docker-compose, .gitignore, etc.  
 - Tout est déjà là. Tout est déjà prêt.
+- chacun devra lire le module qui le concerne et remplir les infos manquantes
 
 **Il ne reste plus qu’à coder.**
 
