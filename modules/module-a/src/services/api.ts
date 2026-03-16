@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { Mandat } from "../types/index";
+import type { Case } from "../types/index";
 
 const API_URL = "http://localhost:8000/api/v1"; // URL par défaut de FastAPI
 
@@ -12,7 +12,7 @@ const api = axios.create({
 
 export const mandateService = {
   // Envoi du mandat au backend
-  createMandate: async (mandat: Partial<Mandat>) => {
+  createMandate: async (mandat: Partial<Case>) => {
     const response = await api.post("/cases", mandat);
     return response.data;
   },
