@@ -22,6 +22,12 @@ export default function FormulaireMandat({ onDone }: { onDone: () => void }) {
   const [newCaseData, setNewCaseData] = useState<CaseData | null>(null);
   const [selectedExpert, setSelectedExpert] = useState<Expert | null>(null);
 
+  const handleStepBack = () => {
+    if (step > 1) {
+      setStep(step - 1);
+    }
+  };
+
   return (
     <div className="w-full">
       {/* Barre de progression (Stepper) */}
@@ -55,6 +61,7 @@ export default function FormulaireMandat({ onDone }: { onDone: () => void }) {
               setNewCaseData(data);
               setStep(2);
             }}
+            onBack={undefined}
           />
         )}
 
@@ -64,6 +71,7 @@ export default function FormulaireMandat({ onDone }: { onDone: () => void }) {
               setSelectedExpert(expert);
               setStep(3);
             }}
+            onBack={handleStepBack}
           />
         )}
 
@@ -75,6 +83,7 @@ export default function FormulaireMandat({ onDone }: { onDone: () => void }) {
               setStep(1);
               onDone();
             }}
+            onBack={handleStepBack}
           />
         )}
       </div>

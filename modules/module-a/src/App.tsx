@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PlusCircle } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import type { TabKey } from './components/Sidebar';
@@ -8,6 +8,20 @@ import FormulaireMandat from './components/FormulaireMandat';
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabKey>('dashboard');
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Synchroniser l'URL avec l'onglet actif
+  useEffect(() => {
+    window.history.replaceState(null, '', `?tab=${activeTab}`);
+  }, [activeTab]);
+
+  // Lire l'URL au chargement
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get('tab') as TabKey;
+    if (tab && ['dashboard', 'nouveau', 'experts', 'historique'].includes(tab)) {
+      setActiveTab(tab);
+    }
+  }, []);
 
   return (
     <div className="flex min-h-screen bg-slate-50">

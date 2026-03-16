@@ -1,6 +1,6 @@
-import { FileDown, CheckCircle2 } from 'lucide-react';
+import { FileDown, CheckCircle2, ArrowLeft } from 'lucide-react';
 
-export default function Step3Download({ data, expert, onFinish }: { data: any; expert: any; onFinish: () => void }) {
+export default function Step3Download({ data, expert, onFinish, onBack }: { data: any; expert: any; onFinish: () => void; onBack?: () => void }) {
   return (
     <div className="text-center space-y-8 animate-in zoom-in-95 duration-500">
       <div className="flex justify-center">
@@ -24,12 +24,23 @@ export default function Step3Download({ data, expert, onFinish }: { data: any; e
         <button className="bg-slate-900 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-black transition-all">
           <FileDown size={20} /> Télécharger le Mandat (PDF)
         </button>
-        <button 
-          onClick={onFinish}
-          className="text-slate-500 font-semibold hover:text-blue-600 transition-colors"
-        >
-          Retour au tableau de bord
-        </button>
+        <div className="flex gap-3">
+          {onBack && (
+            <button 
+              onClick={onBack}
+              className="flex-1 border border-slate-300 text-slate-700 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-50 transition-colors"
+            >
+              <ArrowLeft size={20} />
+              Retour
+            </button>
+          )}
+          <button 
+            onClick={onFinish}
+            className="flex-1 text-slate-500 font-semibold hover:text-blue-600 transition-colors py-3"
+          >
+            Retour au tableau de bord
+          </button>
+        </div>
       </div>
     </div>
   );
